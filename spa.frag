@@ -89,7 +89,7 @@ color += texture2D(img, uv);
  color /= div;
 
      vec3 hsv = rgb2hsv(color.rgb);
-    hsv.y *= 1.1;
+    hsv.y *= 1.05;
     color.rgb = hsv2rgb(hsv);
 
    
@@ -98,7 +98,7 @@ color += texture2D(img, uv);
 
 //  color += vec4(0.1,0.1,0.1,1.0);    
 
- color += vec4(-0.03,-0.03,-0.03,1.0);          
+ color += vec4(-0.02,-0.02,-0.02,1.0);          
 
       
  gl_FragColor = color;
