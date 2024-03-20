@@ -105,7 +105,7 @@ vec3 hsv2rgb(vec3 c) {
    div = 1.1*mult;
    color /= div;
 
-   color.rgb = ((color.rgb - vec3(0.5)) * 1.5 + vec3(0.5));
+   color.rgb = ((color.rgb - vec3(0.5)) * 1.3 + vec3(0.5));
 
 //    color += vec4(0.0,-0.01,-0.02,0.0);
    gl_FragColor = color;
