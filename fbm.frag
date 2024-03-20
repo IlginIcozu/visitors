@@ -98,14 +98,16 @@ vec3 hsv2rgb(vec3 c) {
    color += texture2D(uTexture0, uv + vec2(offset.x, offset.y));
 
    color += texture2D(uTexture0, uv + vec2(offset.x, offset.y) * 4.0);
-   mult = 2.0;
+   mult = 1.5;//2.0
 
    
    color += fbm(uv*2.0);
    div = 1.1*mult;
    color /= div;
 
-   color.rgb = ((color.rgb - vec3(0.5)) * 1.3 + vec3(0.5));
+  //  color.rgb = ((color.rgb - vec3(0.5)) * 1.3 + vec3(0.5));
+
+   color.rgb = ((color.rgb - vec3(0.5)) * 1.4 + vec3(0.5));
 
 //    color += vec4(0.0,-0.01,-0.02,0.0);
    gl_FragColor = color;
