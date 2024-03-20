@@ -260,8 +260,7 @@ function setup() {
 
   rSeed = R.random_dec() * 999999
 
-  // rSeed = 479175.34572898946
-
+  // rSeed = 404234.03047638084
 
 
 
@@ -312,7 +311,9 @@ function setup() {
   //   col3 = Math.max(col1, col2) + 50
   // }
 
-  colPic = random([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 14, 14, 14])
+  colPic = random([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 14, 14, 14, 14, 14, 14])
+
+  // colPic = 1
 
 
 
@@ -377,26 +378,6 @@ function setup() {
       col3 = (Math.max(col1, col2) + 50) % 360
     }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -550,6 +531,7 @@ function setup() {
   } else if (compGroup == 7) {
     gate = random([44, 21])
   } else if (compGroup == 8) {
+    circ = 1
     gate = random([24, 20, 18])
   } else if (compGroup == 9) {
     gate = random([35, 45])
@@ -624,6 +606,7 @@ function setup() {
     shapeC = random([0, 6])
 
     shapeC = 0
+
 
     rad = random([0.5, 0.6, 0.7, 0.8, 0.9, 1.0]) ///0.5 1.0
     swangle = random([1.0, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0, 5.5, 7.0, 8.0, 10.0, 12.0, 15.0, 18.0, 25.0]) // 1.0 25.0
@@ -904,11 +887,11 @@ function setup() {
 
   // shapeC = 6.0
 
-  // rad = 0.7
+  // rad = 0.4
 
-  // swangle = 3
+  // swangle = 5
 
-  // tick = 0.2
+  // tick = 0.0
 
 
 
@@ -1403,6 +1386,8 @@ function draw() {
     spaShader.setUniform("u_tanC", tanC);
     spaShader.setUniform("u_tanC2", tanC2);
     spaShader.setUniform("uPi", uPi);
+    spaShader.setUniform("u_circ", circ);
+    spaShader.setUniform("u_gate", compGroup)
 
 
     spaBuf.noStroke()
@@ -1458,14 +1443,14 @@ function draw() {
       push()
       for (let i = 0; i < 25; i++) {
 
-        noFill()
-        stroke(0, 0, 90)
-        strokeWeight(random(0.01, 0.08))
-        drawingContext.shadowOffsetX = 0;
-        drawingContext.shadowOffsetY = 0;
-        drawingContext.shadowBlur = 25;
-        drawingContext.shadowColor = 'white';
-        circle(random(width), random(height), random([50, 100, 20, 500]))
+        // noFill()
+        // stroke(0, 0, 90)
+        // strokeWeight(random(0.01, 0.08))
+        // drawingContext.shadowOffsetX = 0;
+        // drawingContext.shadowOffsetY = 0;
+        // drawingContext.shadowBlur = 25;
+        // drawingContext.shadowColor = 'white';
+        // circle(random(width), random(height), random([50, 100, 20, 500]))
 
 
         // circC()
@@ -1481,7 +1466,7 @@ function draw() {
       noLoop();
 
 
-      // saveCanvas("geniyDenemeSha3 " + compGroup + " " + gate + " " + shapeC + " " + circ + " " + colPic + " " + rSeed, "png")
+      // saveCanvas("sonTest2 " + compGroup + " " + gate + " " + shapeC + " " + circ + " " + colPic + " " + rSeed, "png")
       // setTimeout(function () {
       //   window.location.reload(1);
       // }, 5000);
