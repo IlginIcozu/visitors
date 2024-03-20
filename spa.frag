@@ -18,6 +18,9 @@ uniform float u_tanC;
 uniform float utime;
 uniform float u_tanC2;
 uniform float uPi;
+uniform float u_circ;
+uniform float u_gate;
+
 
 float random(in vec2 co)
 {return texture2D(randomTex, mod(co.xy/0.7,0.2) * PI).x;}
@@ -81,24 +84,33 @@ float div;
 
 color += texture2D(img, uv);
 
+div = 0.45;
 
- color -= texture2D(img, uv + noise(vec2(st.x, st.y)) / random(uv));// / random(uv));
 
 
- div = 0.45;
- color /= div;
+
+ if(u_circ == 1.0 || u_gate == 8.0){
+  color -= texture2D(img, uv + noise(vec2(st.x, st.y)) / random(uv));// / random(uv));
+  color /= div;
+  
+ }
+
 
      vec3 hsv = rgb2hsv(color.rgb);
-    hsv.y *= 1.05;
+    // hsv.y *= 1.05;
+    hsv.y *= 1.1;
     color.rgb = hsv2rgb(hsv);
+    
 
    
+  if(u_circ == 0.0){
+   color.rgb = ((color.rgb - vec3(0.5)) * 1.15 + vec3(0.5));
+   color += vec4(0.03,0.03,0.03,1.0);  
+  }else{
+     color += vec4(-0.02,-0.02,-0.02,1.0);   
+  }
 
-//   color.rgb = ((color.rgb - vec3(0.5)) * 1.25 + vec3(0.5) );
-
-//  color += vec4(0.1,0.1,0.1,1.0);    
-
- color += vec4(-0.02,-0.02,-0.02,1.0);          
+      
 
       
  gl_FragColor = color;
